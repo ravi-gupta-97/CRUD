@@ -3,21 +3,24 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { signin } from '../store/userSlice';
+import Navbar from '../components/Navbar';
 
 const SignIn = () => {
-    console.log('signin is called');
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [inputs, setInputs] = useState({
         email: '',
         password: ''
     });
+
+    // handling data inputs by the user
     const handleChange = (e) => {
         setInputs((prev) => ({
             ...prev, [e.target.name]: e.target.value
         }))
     }
 
+    // api request for signing-in for the registered user
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -35,7 +38,7 @@ const SignIn = () => {
     }
 
     return (
-        <>
+        <><Navbar />
             <div className="min-h-screen flex items-center justify-center bg-gray-100">
                 <div className="max-w-md w-full bg-white p-8 shadow-lg rounded-lg">
                     <h2 className="text-2xl text-center font-semibold text-gray-800 mb-6">Sign In</h2>

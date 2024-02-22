@@ -1,5 +1,7 @@
 import jwt from 'jsonwebtoken';
 
+// middleware for accessing token and verifying it
+
 export const verifyToken = async (req, res, next) => {
     try {
         const token = req.cookies.access;

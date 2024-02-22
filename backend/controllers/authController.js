@@ -2,6 +2,8 @@ import userModel from "../models/userModel.js";
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
+//Sign-Up api for registering new User
+
 export const signUp = async (req, res, next) => {
     try {
         const { name, email, password } = req.body;
@@ -28,6 +30,8 @@ export const signUp = async (req, res, next) => {
         console.log(error);
     }
 }
+
+//Sign-In api for logging in for the regisitered User
 
 export const signIn = async (req, res, next) => {
     try {
@@ -58,6 +62,7 @@ export const signIn = async (req, res, next) => {
     }
 }
 
+//Fetching Logged-User after verifiaction of token 
 
 export const getLoggedUser = async (req, res, next) => {
     try {
@@ -67,6 +72,8 @@ export const getLoggedUser = async (req, res, next) => {
         return res.status(500).json({ error });
     }
 }
+
+// Sign-Out api for logged-User
 
 export const signOut = async (req, res, next) => {
     try {
